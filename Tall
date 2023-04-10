@@ -1,4 +1,4 @@
---Shit ass script made by failedmite57926
+-- make sure to have 100% body scale and 100% width (width is optional)
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Character = LocalPlayer.Character
