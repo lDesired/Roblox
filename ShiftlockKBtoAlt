@@ -1,0 +1,26 @@
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+while true do
+local Players = game:GetService("Players")
+
+-- Name(s) of Enum.KeyCode items separated by commas
+local KEYS = "LeftAlt"
+
+local mouseLockController = Players.LocalPlayer
+	.PlayerScripts
+	:WaitForChild("PlayerModule")
+	:WaitForChild("CameraModule")
+	:WaitForChild("MouseLockController")
+
+local obj = mouseLockController:FindFirstChild("BoundKeys")
+if obj then
+	obj.Value = KEYS
+else
+	obj = Instance.new("StringValue")
+	obj.Name = "BoundKeys"
+	obj.Value = KEYS
+	obj.Parent = mouseLockController
+end
+wait(1) 
+end
