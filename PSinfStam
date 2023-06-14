@@ -1,0 +1,14 @@
+getgenv().InfiniteStuff = true
+
+local Client = game:GetService("Players").LocalPlayer
+local PlayerValues = game:GetService("ReplicatedStorage").PlayerValues[Client.Name]
+local Stamina, Breath = PlayerValues.Stamina, PlayerValues.Breath
+
+OldNewIndex = hookmetamethod(game, "__newindex", function(self, index, value)
+    if InfiniteStuff and checkcaller() == false then
+        if (self == Stamina or self == Breath) and index == "Value" then
+            value = 9999
+        end
+    end
+    return OldNewIndex(self, index, value)
+end)
